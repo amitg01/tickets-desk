@@ -8,6 +8,7 @@ import { initializeLogger } from "./common/logger";
 import Dashboard from "./components/Dashboard";
 import CreateTask from "components/Tasks/CreateTask";
 import ShowTask from "components/Tasks/ShowTask";
+import EditTask from "./components/Tasks/EditTask";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
