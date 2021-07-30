@@ -3,6 +3,14 @@
 require "test_helper"
 
 class ArticleTest < ActiveSupport::TestCase
+  def setup
+    @user = User.new(
+      name: "Sam Smith",
+      email: "sam@example.com",
+      password: "welcome",
+      password_confirmation: "welcome")
+  end
+
   def test_user_should_be_not_be_valid_and_saved_without_email
     @user.email = ""
     assert_not @user.valid?
