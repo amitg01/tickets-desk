@@ -9,6 +9,7 @@ import Dashboard from "./components/Dashboard";
 import CreateTask from "components/Tasks/CreateTask";
 import ShowTask from "components/Tasks/ShowTask";
 import EditTask from "./components/Tasks/EditTask";
+import Signup from "components/Authentication/Signup";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -28,6 +29,7 @@ const App = () => {
         <Route exact path="/tasks/create" component={CreateTask} />
         <Route exact path="/tasks/:slug/show" component={ShowTask} />
         <Route exact path="/tasks/:slug/edit" component={EditTask} />
+        <Route exact path="/signup" component={Signup} />
       </Switch>
     </Router>
   );
