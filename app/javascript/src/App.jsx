@@ -26,6 +26,7 @@ const App = () => {
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/tasks/create" component={CreateTask} />
         <Route exact path="/tasks/:slug/show" component={ShowTask} />
+        <Route exact path="/tasks/:slug/edit" component={EditTask} />
       </Switch>
     </Router>
   );

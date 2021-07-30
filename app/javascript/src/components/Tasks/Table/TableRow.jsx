@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const TableRow = ({ data, destroyTask, updateTask, showTask }) => {
+const TableRow = ({ data, showTask, updateTask }) => {
   return (
     <tbody className="bg-white divide-y divide-gray-200">
       {data.map(rowData => (
@@ -21,6 +21,14 @@ const TableRow = ({ data, destroyTask, updateTask, showTask }) => {
               onClick={() => showTask(rowData.slug)}
             >
               Show
+            </a>
+          </td>
+          <td className="px-6 py-4 text-sm font-medium leading-5 text-right cursor-pointer">
+            <a
+              className="text-indigo-600 hover:text-indigo-900"
+              onClick={() => updateTask(rowData.id)}
+            >
+              Edit
             </a>
           </td>
         </tr>
