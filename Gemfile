@@ -35,6 +35,8 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
 end
 
+gem "pundit"
+
 gem "simplecov", require: false, group: :test
 
 group :development do
