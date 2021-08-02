@@ -17,7 +17,7 @@ class TaskPolicy
   end
 
   def update?
-    task.creator_id == user.id
+    show?
   end
 
   def create?
