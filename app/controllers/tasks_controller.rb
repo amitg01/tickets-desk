@@ -9,21 +9,12 @@ class TasksController < ApplicationController
 
   def index
     tasks = policy_scope(Task)
-
-    pending_starred = tasks.pending.starred.order("updated_at DESC")
-    pending_unstarred = tasks.pending.unstarred
-    pending_tasks = (pending_starred + pending_unstarred).as_json(
-      include: { user: { only: %i[name id] } }
-    )
-
-    completed_starred = tasks.completed.starred.order("updated_at DESC")
-    completed_unstarred = tasks.completed.unstarred
-    completed_tasks = completed_starred + completed_unstarred
-
     render status: :ok, json: {
       tasks: {
-        pending: pending_tasks,
-        completed: completed_tasks
+        pending: tasks.inorder_of(:pending).as_json(
+          include: { user: { only: %i[name id] } }
+        }),
+        completed: tasks.inorder_of(:completed)
       }
     }
   end
@@ -90,4 +81,3 @@ class TasksController < ApplicationController
       end
     end
 end
-

@@ -7,7 +7,7 @@ class Task < ApplicationRecord
   validates :slug, uniqueness: true
   validate :slug_not_changed
 
-  belongs_to :user
+  belongs_to :user, required: true
   enum progress: { pending: 0, completed: 1 }
   enum status: { unstarred: 0, starred: 1 }
   has_many :comments, dependent: :destroy
