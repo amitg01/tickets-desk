@@ -21,5 +21,12 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     response_json = response.parsed_body
     assert_equal response_json["errors"], "Content can't be blank"
   end
+
+  def headers(user, options = {})
+    {
+      "X-Auth-Token" => user.authentication_token,
+      "X-Auth-Email" => user.email
+    }.merge(options)
+  end
 end
 

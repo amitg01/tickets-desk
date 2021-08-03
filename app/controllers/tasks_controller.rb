@@ -13,9 +13,8 @@ class TasksController < ApplicationController
       tasks: {
         pending: tasks.inorder_of(:pending).as_json(
           include: { user: { only: %i[name id] } }
-        )
-      },
-      completed: tasks.inorder_of(:completed)
+        ), completed: tasks.inorder_of(:completed)
+      }
     }
   end
 
@@ -77,7 +76,8 @@ class TasksController < ApplicationController
       is_editing_restricted_params = Task::RESTRICTED_ATTRIBUTES.any? { |a| task_params.key?(a) }
       is_not_owner = @task.creator_id != @current_user.id
       if is_editing_restricted_params && is_not_owner
-        authorization_error
+        render status: :forbidden,
+               json: { errors: t("authorization.denied") }
       end
     end
 end
