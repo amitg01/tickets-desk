@@ -13,9 +13,9 @@ class TasksController < ApplicationController
       tasks: {
         pending: tasks.inorder_of(:pending).as_json(
           include: { user: { only: %i[name id] } }
-        }),
-        completed: tasks.inorder_of(:completed)
-      }
+        )
+      },
+      completed: tasks.inorder_of(:completed)
     }
   end
 
@@ -57,7 +57,7 @@ class TasksController < ApplicationController
       render status: :ok, json: {}
     else
       render status: :unprocessable_entity,
-             json: { errors: @task.errors.full_messages.to_sentence }
+             json: { errors: t("authorization.denied") }
     end
   end
 
@@ -81,3 +81,4 @@ class TasksController < ApplicationController
       end
     end
 end
+
