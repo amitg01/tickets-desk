@@ -12,7 +12,7 @@ class TaskMailer < ApplicationMailer
   private
 
     def create_user_notification
-      @receiver.user_notifications.create(last_notification_sent_date: TIme.zone.today)
+      @receiver.user_notifications.create(last_notification_sent_date: Time.zone.today)
     end
 end
 
