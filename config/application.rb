@@ -1,5 +1,7 @@
-require_relative 'boot'
-require 'rails/all'
+# frozen_string_literal: true
+
+require_relative "boot"
+require "rails/all"
 
 Bundler.require(*Rails.groups)
 
@@ -10,5 +12,7 @@ module Granite2
     config.generators do |g|
       g.test_framework :test_unit, fixture: false
     end
+    config.active_job.queue_adapter = :sidekiq
   end
 end
+
