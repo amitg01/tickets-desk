@@ -4,12 +4,15 @@ import { either, isEmpty, isNil } from "ramda";
 import { ToastContainer } from "react-toastify";
 import { registerIntercepts, setAuthHeaders } from "apis/axios";
 import { initializeLogger } from "common/logger";
+
 import Dashboard from "components/Dashboard";
 import CreateTask from "components/Tasks/CreateTask";
 import ShowTask from "components/Tasks/ShowTask";
 import EditTask from "components/Tasks/EditTask";
 import Login from "components/Authentication/Login";
 import Signup from "components/Authentication/Signup";
+import MyPreferences from "components/MyPreferences";
+
 import PrivateRoute from "components/Common/PrivateRoute";
 import { getFromLocalStorage } from "helpers/storage";
 import PageLoader from "components/PageLoader";
@@ -40,6 +43,7 @@ const App = () => {
         <Route exact path="/tasks/:slug/show" component={ShowTask} />
         <Route exact path="/tasks/:slug/edit" component={EditTask} />
         <Route exact path="/tasks/create" component={CreateTask} />
+        <Route exact path="/my/preferences" component={MyPreferences} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
         <PrivateRoute

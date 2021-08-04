@@ -24,6 +24,12 @@ gem "bcrypt", "~> 3.1.7"
 
 gem "sidekiq"
 
+# For periodic sidekiq jobs
+gem "sidekiq-cron"
+
+# For opening mails in development env
+gem "letter_opener", group: :development
+
 gem "react-rails"
 
 # Use Active Storage variant

@@ -13,6 +13,7 @@ module Granite2
       g.test_framework :test_unit, fixture: false
     end
     config.active_job.queue_adapter = :sidekiq
+    Redis.exists_returns_integer = false
   end
 end
 
